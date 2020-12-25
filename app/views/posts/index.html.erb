@@ -1,6 +1,7 @@
 <h2><%= link_to 'Settings', feeds_path, :class => 'btn btn-grey'%></h2>
 <div class="container">
   <% @posts.each do |post| %>
+  	<%next unless post.feed%>
   	<%post.set(is_published: true)%>
     <div class="panel panel-default">
       <div class="panel-body">
