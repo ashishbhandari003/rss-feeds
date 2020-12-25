@@ -1,0 +1,8 @@
+<%= link_to 'Back', :back%>
+<br><br>
+<%= form_for @feed, url: feeds_path(@feed), method: :post do |f| %>
+<%= text_field_tag :title, '', placeholder: 'Add Name', required: true, class: "form-control" %>
+<%= text_field_tag :url, '', placeholder: 'Add Valid Link', required: true, class: "form-control" %>
+<%= f.submit 'Add', class: 'btn global-btn-md btn-primary fa-input' %>
+<%end%>
+

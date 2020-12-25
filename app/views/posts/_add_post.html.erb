@@ -1,0 +1,9 @@
+<%Post.where(is_published: false).order_by(published_at: :desc).each do |post|%>
+	<%post.set(is_published: true)%>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+	    <%= link_to post.title, post.url, target: '_blank' %> - <i> published <%= time_ago_in_words(post.published_at) %> ago</i> by <%=post.feed.title%>
+	  </div>
+	  <br>
+	</div>
+<%end%>

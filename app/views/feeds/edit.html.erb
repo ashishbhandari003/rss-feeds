@@ -1,0 +1,13 @@
+<%= link_to 'Back', feeds_path%>
+<br><br>
+<%= form_for @feed, url: feed_path(@feed) do |f| %>
+  <tr>
+    <td>
+      <%= f.text_field :title, placeholder: 'New title', required: true, class: "form-control", value: @feed.title %>
+    </td>
+    
+    <td>                    
+      <%= f.submit 'Update', class: 'btn global-btn-md btn-primary fa-input' %>
+    </td>
+  </tr>
+<% end %>

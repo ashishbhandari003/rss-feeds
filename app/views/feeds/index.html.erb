@@ -1,0 +1,26 @@
+<%= link_to 'Back', root_path%>
+<br><br>
+
+<table>
+  <caption>
+    <%= link_to 'Add Feed', new_feed_path %>
+  </caption>
+  <thead>
+    <tr>
+      <th width="60%">Title</th>
+      <th width="40%">Actions</th>
+    </tr>
+  </thead>
+  <tbody style="text-align: center;">
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><div class='col-md-8'><%= feed.title %></div></td>
+        <td>
+          <%= link_to 'Edit', edit_feed_path(feed) %>
+          <%= link_to 'Remove', feed_path(feed), method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
