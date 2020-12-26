@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   end
 
   def fetch_feeds
-    FetchFeedsJob.perform_later
+  	FetchFeedsJobWorker.perform_async #calling sidekiq worker
+    #FetchFeedsJob.perform_later #calling active job
   end
 
 end
