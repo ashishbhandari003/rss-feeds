@@ -3,7 +3,7 @@
   <% @posts.each do |post| %>
   	<%next unless post.feed%>
   	<%post.set(is_published: true)%>
-    <div class="panel panel-default">
+    <div class="panel panel-default" id="<%=post.published_at%>">
       <div class="panel-body">
         <%= link_to post.title, post.url, target: '_blank' %> - <i> published <%= time_ago_in_words(post.published_at) %> ago</i> by <b> <%=post.feed.title%> </b>
       </div>

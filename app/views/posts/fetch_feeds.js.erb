@@ -1,1 +1,27 @@
 $(".container").prepend("<%= j render partial: 'posts/add_post' %>");
+function sortData(){
+  var rows = $('.panel-default').get();
+
+  rows.sort(function(a, b) {
+
+  var A = $(a).attr('id');
+  var B = $(b).attr('id');
+
+  if(A < B) {
+    return -1;
+  }
+
+  if(A > B) {
+    return 1;
+  }
+
+  return 0;
+
+  });
+
+  $.each(rows, function(index, row) {
+    $('.container').prepend(row);
+  });
+}
+
+sortData();
