@@ -24,4 +24,7 @@ function sortData(){
   });
 }
 
-sortData();
+<%if Post.where(is_published: false).present?%>
+	sortData();
+	<%Post.where(is_published: false).each{|post| post.set(is_published: true)}%>
+<%end%>
