@@ -7,6 +7,7 @@ class FeedsController < ApplicationController
   def create
     title = params[:title]
     url = params[:url]
+    url = url.include?('http') ? url : 'http://'+url
     doc = Nokogiri::HTML(open(url)) rescue false
     raise 'Invalid Link' unless doc
     rss_path = doc.xpath("//link[@type=\"application/rss+xml\"]").first['href'] rescue false

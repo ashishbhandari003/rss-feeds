@@ -1,4 +1,6 @@
 class FetchFeedsJobWorker
+  require 'nokogiri'
+  require 'open-uri'
   include Sidekiq::Worker
   sidekiq_options :retry => false, :queue => "default"
 
